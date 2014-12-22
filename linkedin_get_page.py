@@ -24,12 +24,12 @@ application = linkedin.LinkedInApplication(authentication)
 # Use the app....
 
 # print application.get_profile()
-with open("connnections.json", "w") as outfile:
-    outfile.write(json.dumps(application.get_connections(), indent=1))
-
-with open("memberships.json", "w") as outfile:
-    outfile.write(json.dumps(application.get_memberships(), indent=1))
-
+# with open("connnections.json", "w") as outfile:
+#     outfile.write(json.dumps(application.get_connections(), indent=1))
+# 
+# with open("memberships.json", "w") as outfile:
+#     outfile.write(json.dumps(application.get_memberships(), indent=1))
+# 
 with open("companies.json", "w") as outfile:
     # universal company name is gotten from linkedin page url
     outfile.write(json.dumps(application.get_companies(universal_names=["echo-global-logistics"]), indent=1))

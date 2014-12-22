@@ -18,10 +18,11 @@ def some_action(post):
 
 # You'll need an access token here to do anything.  You can get a temporary one
 # here: https://developers.facebook.com/tools/explorer/
-access_token = 'CAACEdEose0cBABCFf5vjPlWcaZA0XQyeOdVd0Rv5php7ANW1EF6huhrvnDECUoZCTpwubmKtKWmk71HecfJJCJZAz6MPfWWlIAhoEz6ZAf1OCzGO8IVRqZB4Wbz4jvzhFVpZCRcGvrZAfcCmbFhH6NlRDr76ZAQ7jE8GKzZAJRoBS4V9FsoVOjJZAW5C6HzyJ1VLba25knmZBO9Nm8m7IldMMbNJfdXGZCYCxIkZD'
+access_token = 'CAACEdEose0cBACfoW5jvACnnZAl8ZBju3vNE34ZBxOMLZBMCgAD9Mvl1bzOxjoZB1jZBXYPWPf2I8BYj3s2qyuHteMMdZC5cZCHmSYK2wQo18KEUMAA8e2RWbaYYg1pZBWxajRiE9eMbaAR5BBT8H5HwDuChWN5m94iysyjNFOKtY68EknqhIDAwtzA77yHtF87MTzDPWwCvTMb1ZCHDMTPA40mwBnbMe4BqgZD'
 
 # users = ["comscoreinc", "conchoresources", "csodcommunity", "WorkAtBRAVO", "iHeartMedia", "CTGinc", "GrouponJobs", "InsperityJobs", "tmobilecareers", "ReachLocal", "SymmetryMedical", "Zillow"]
-users = ["ReachLocal", "SymmetryMedical", "Zillow"]
+users = ["SymmetryMedical"]
+# users = ["Zillow"]
 # Look at user's profile for this example by using his Facebook id.
 for user in users:
 
