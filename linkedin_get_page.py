@@ -1,5 +1,6 @@
 from linkedin import linkedin
 import json
+import datetime
 
 # Define CONSUMER_KEY, CONSUMER_SECRET,  
 # USER_TOKEN, and USER_SECRET from the credentials 
@@ -30,13 +31,27 @@ application = linkedin.LinkedInApplication(authentication)
 # with open("memberships.json", "w") as outfile:
 #     outfile.write(json.dumps(application.get_memberships(), indent=1))
 # 
-with open("companies.json", "w") as outfile:
-    # universal company name is gotten from linkedin page url
-    outfile.write(json.dumps(application.get_companies(universal_names=["echo-global-logistics"]), indent=1))
 
-with open("companies_updates.json", "w") as outfile:
-    company_json = application.get_companies(universal_names=["echo-global-logistics"])
-    company_id = company_json["values"][0]["id"]
-    company_update_json = application.get_company_updates(company_id)
-    outfile.write(json.dumps(company_update_json, indent=1))
+companies = ['cornerstone-ondemand', 'echo-global-logistics']
+
+for company in companies:
+    with open("linkedin_data/"+company+"-profile.json", "w") as outfile:
+        # universal company name is gotten from linkedin page url
+        outfile.write(json.dumps(application.get_companies(universal_names=[company]), indent=1))
+
+    with open("linkedin_data/"+company+"-updates.json", "w") as outfile:
+        company_json = application.get_companies(universal_names=[company])
+        company_id = company_json["values"][0]["id"]
+
+        # company_update_json = application.get_company_updates(company_id, params={'count': 200, 'total':200})
+        # company_update_json = application.get_company_updates(company_id)
+        company_update_json = application.get_company_updates(company_id, params={'count':20})
+
+        updates = company_update_json['values']
+        print company, len(updates)
+        # parse int time stamp to datetime
+        for update in updates:
+            print datetime.datetime.fromtimestamp(int(update['timestamp'])/1000)
+
+        outfile.write(json.dumps(company_update_json, indent=1))
 

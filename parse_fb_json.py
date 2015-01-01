@@ -14,7 +14,7 @@ text2013 = ''
 
 with codecs.open("fb-2011.txt", "w", "utf-8") as outfile1, codecs.open("fb-2013.txt", "w", "utf-8") as outfile2:
     for user in users:
-        with open("data/"+user+"_timeline.json") as infile:
+        with open("fb_data/"+user+"_timeline.json") as infile:
             timeline_arr = json.load(infile)
             for i in range(0, len(timeline_arr)):
                 message_arr = timeline_arr[i]["data"]
